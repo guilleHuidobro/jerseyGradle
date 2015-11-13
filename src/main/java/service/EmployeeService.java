@@ -8,6 +8,7 @@ public interface EmployeeService {
 	
 	Document getDocument(String name);
 	FindIterable<Document> getDocuments();
+	Document getDocumentById(String id);
 	Long getCount();
 	void saveDocument(Document doc, String name);
 }

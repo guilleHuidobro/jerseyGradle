@@ -8,8 +8,8 @@ app.factory("PersonsService", ["$resource", "appValue", function($resource, appV
 }]);
 
 app.factory("PersonService", ["$resource", "appValue", function($resource, appValue){
-	var URL_PERSON = appValue.baseUrl + "/person/:id";
-		
+	var URL_PERSON = appValue.baseUrl + "/person/detail/:id";
+
 	return $resource(URL_PERSON, {}, {
 		show: {method: 'GET', params: {id: '@id'}},
 		update: {method: 'PUT'},

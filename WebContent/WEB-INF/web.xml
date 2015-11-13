@@ -11,7 +11,7 @@
  <!-- Services package configuration. -->
    <init-param>
      <param-name>jersey.config.server.provider.packages</param-name>
-     <param-value>restFul</param-value>
+     <param-value>restFul,serializer</param-value>
    </init-param> 
  </servlet>
  <servlet-mapping>

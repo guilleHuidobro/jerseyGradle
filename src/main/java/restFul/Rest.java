@@ -4,6 +4,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -20,13 +21,7 @@ public class Rest {
 
 	private final EmployeeService employeeService = new EmployeeServiceImpl();
 	
-//	@GET	
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Document getDocument(final @QueryParam("name") String name){
-//		return employeeService.getDocument(name);		
-//	}
-	
-	@POST	
+	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Document createDocument(final @QueryParam("name") String name,final Document document){
 		employeeService.saveDocument(document,name);
@@ -35,13 +30,20 @@ public class Rest {
 	
 	@GET	
 	@Produces(MediaType.APPLICATION_JSON)
-	public FindIterable<Document> getAll(){
-		
+	public FindIterable<Document> getAll(){		
 		return employeeService.getDocuments();		
 	}
 	
 	@GET
-	@Path("/doSomething")
+	@Path("/detail/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Document getPersonById(@PathParam("id") String id){	
+		System.out.println("el id es " + id);
+		return employeeService.getDocumentById(id);		
+	}
+	
+	@GET
+	@Path("/count")
 	public Long getCount() {
 		return employeeService.getCount();
 	}

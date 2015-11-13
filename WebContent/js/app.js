@@ -8,17 +8,17 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
 		templateUrl: "./person/view/persons.html",
 		controller: "PersonsController"
 	});
-
+	
 	//Detail person
-	$routeProvider.when("/persons/:id", {
-		templateUrl: "./person/view/person.html",
+	$routeProvider.when("/person/detail/:id", {
+		templateUrl: "./person/view/update.html",
 		controller: "PersonController"
-	});
+	});	
 	
 	//Create Person
 	$routeProvider.when("/person/create", {
 		templateUrl: "./person/view/create.html",
-		controller: "PersonsController"
+		controller: "SaveController"
 	});
 	
 	//Update Person

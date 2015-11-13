@@ -6,13 +6,21 @@ app.controller('PersonsController', ["$scope", "$location", "PersonsService", fu
 	
 //	console.log($scope.countPerson);
 	
+	//Create Person
+	$scope.createPerson = function(){
+		$location.path("/person/create");
+	};
+
+}]);
+
+app.controller("SaveController",["$scope", "$routeParams", "$location", "PersonsService",function($scope, $routeParams, $location, PersonsService){
+	
 	$scope.errors = false;
 	
 	//Create Person
 	$scope.createPerson = function(){
 		$location.path("/person/create");
 	};
-	
 	//Save person
 	$scope.save = function(){
 		PersonsService.create($scope.person, 
@@ -24,12 +32,12 @@ app.controller('PersonsController', ["$scope", "$location", "PersonsService", fu
 					$scope.errors = true;
 				});
 	};
-	
 }]);
 
 app.controller("PersonController", ["$scope", "$routeParams", "$location", "PersonService", function($scope, $routeParams, $location, PersonService){
-	$scope.person = PersonService.show({id: $routeParams.id});
 	
+	$scope.person = PersonService.show({id: $routeParams.id});
+
 	//Edit Person
 	$scope.editPerson = function(){
 		$location.path("/person/update/" + $scope.person.id);

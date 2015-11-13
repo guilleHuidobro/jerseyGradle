@@ -5,7 +5,10 @@
 	
 	<table class="table">
 		<tr>
-			
+			<!-- Name -->
+			<th>
+				ID
+			</th>
 			<!-- Name -->
 			<th>
 				Name
@@ -18,7 +21,11 @@
 			
 			<!-- Actions -->
 			<th></th>
-		<tr ng-repeat="person in persons | limitTo:4">
+		<tr ng-repeat="person in persons">
+		
+		    <td>
+				{{person._id}}
+			</td>
 		
 			<td>
 				{{person.firstName}}
@@ -29,7 +36,8 @@
 			</td>
 			
 			<td>
-				<a ng-href = "#/persons/{{person.id}}" class="btn btn-default"> Detail </a>
+				<a ng-href = "#/person/detail/{{person._id}}" class="btn btn-default"> Detail </a>
+<!-- 				<a ng-href = "#/detail" class="btn btn-default"> Detail </a> -->
 			</td>
 		</tr>
 	</table>

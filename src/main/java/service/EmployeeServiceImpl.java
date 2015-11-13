@@ -35,4 +35,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeDAO.getCount();
 	}
 
+	@Override
+	public Document getDocumentById(String id) {
+		// TODO Auto-generated method stub
+		return employeeDAO.getDocumentById(id);
+	}
+
 }

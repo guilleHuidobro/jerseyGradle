@@ -1,11 +1,13 @@
 <div ng-controller="PersonController">
+<div><h2>Actualizar</h2></div>
+<br>
 	<form name=frmPerson" ng-submit="update()">
 		 <!-- Controlar erros backend -->
 		 <div class="alert alert-danger" ng-show="errors" role="alert"> Invalida Data! </div>
 		 
 		 <div class="form-group">
 			<label>	Name: </label>
-			<input type="text" class="form-control" name="name" ng-model="person.name" required />
+			<input type="text" class="form-control" name="name" ng-model="person.firstName" required />
 		</div>
 		
 		<div class="form-group">
