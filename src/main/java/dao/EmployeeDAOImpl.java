@@ -1,6 +1,7 @@
 package dao;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
@@ -47,7 +48,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	public Document getDocumentById(String id) {
 		MongoCollection<Document> collection = MongoConnection.getSingleInstance().getCollection("user");
 		Document filter = new Document();
-		filter.append("_id", id);
+		filter.append("_id", new ObjectId(id));
 		System.out.println(filter);
 		System.out.println(collection.find(filter).first());
 		return collection.find(filter).first();
