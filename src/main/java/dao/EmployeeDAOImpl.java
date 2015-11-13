@@ -49,8 +49,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 		MongoCollection<Document> collection = MongoConnection.getSingleInstance().getCollection("user");
 		Document filter = new Document();
 		filter.append("_id", new ObjectId(id));
-		System.out.println(filter);
-		System.out.println(collection.find(filter).first());
 		return collection.find(filter).first();
 	}
 
