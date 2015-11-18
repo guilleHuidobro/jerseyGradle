@@ -11,4 +11,5 @@ public interface EmployeeService {
 	Document getDocumentById(String id);
 	Long getCount();
 	void saveDocument(Document doc, String name);
+	void updateDocument(Document doc, String name);
 }

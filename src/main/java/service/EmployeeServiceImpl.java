@@ -41,4 +41,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeDAO.getDocumentById(id);
 	}
 
+	@Override
+	public void updateDocument(Document doc, String name) {
+		// TODO Auto-generated method stub
+		employeeDAO.updateDocument(doc, name);
+	}
+
 }

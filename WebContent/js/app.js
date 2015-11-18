@@ -9,6 +9,12 @@ app.config(["$routeProvider", "$locationProvider", function($routeProvider, $loc
 		controller: "PersonsController"
 	});
 	
+	//List Persons
+	$routeProvider.when("/persons2", {
+		templateUrl: "./person/view/persons2.html",
+		controller: "Persons2Controller"
+	});
+	
 	//Detail person
 	$routeProvider.when("/person/detail/:id", {
 		templateUrl: "./person/view/update.html",

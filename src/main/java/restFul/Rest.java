@@ -3,6 +3,7 @@ package restFul;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -28,6 +29,14 @@ public class Rest {
 		return document;
 	}
 	
+	@PUT
+	@Path("/detail")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Document updateDocument(final @QueryParam("name") String name,final Document document){
+		employeeService.updateDocument(document,name);
+		return document;
+	}
+	
 	@GET	
 	@Produces(MediaType.APPLICATION_JSON)
 	public FindIterable<Document> getAll(){		
@@ -38,7 +47,6 @@ public class Rest {
 	@Path("/detail/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Document getPersonById(@PathParam("id") String id){	
-		System.out.println("el id es " + id);
 		return employeeService.getDocumentById(id);		
 	}
 	

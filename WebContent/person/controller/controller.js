@@ -13,6 +13,12 @@ app.controller('PersonsController', ["$scope", "$location", "PersonsService", fu
 
 }]);
 
+app.controller('Persons2Controller', ["$scope", "$location", "PersonsService", function($scope, $location, PersonsService){
+	
+	$scope.persons = PersonsService.query({});
+
+}]);
+
 app.controller("SaveController",["$scope", "$routeParams", "$location", "PersonsService",function($scope, $routeParams, $location, PersonsService){
 	
 	$scope.errors = false;
